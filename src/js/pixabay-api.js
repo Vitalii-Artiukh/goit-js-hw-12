@@ -1,20 +1,20 @@
-const pixabayURL = 'https://pixabay.com/api/'; // URL
+import axios from 'axios';
+
 const myKeyPixabay = '45488193-7ca777789e7fbcf45aeeb8195'; // key='***'
+axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-export const fetchToPixabay = questEntered => {
-  const urlOptions = new URLSearchParams({
-    key: myKeyPixabay,
-    q: questEntered,
-    image_type: 'photo',
-    safesearch: true,
-    orientation: 'horizontal',
-  });
+export const fetchToPixabay = (questEntered, Page) => {
+  const urlOptions = {
+    params: {
+      page: Page,
+      key: myKeyPixabay,
+      q: questEntered,
+      image_type: 'photo',
+      safesearch: true,
+      orientation: 'horizontal',
+      per_page: 15,
+    },
+  };
 
-  return fetch(`${pixabayURL}?${urlOptions}`).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-
-    return response.json();
-  });
+  return axios.get('', urlOptions);
 };
