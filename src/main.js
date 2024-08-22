@@ -85,7 +85,6 @@ const submitSearchPhoto = async event => {
 const addMorePhoto = async event => {
   try {
     preloader.classList.remove('is-visible');
-    moreBtn.classList.add('is-visible');
 
     const response = await fetchToPixabay(searchResault, numberPage);
 
@@ -97,6 +96,7 @@ const addMorePhoto = async event => {
       gallery.insertAdjacentHTML('beforeend', photoCardsInfo);
       window.scrollBy(0, heightCard.height * 2);
     }
+    moreBtn.classList.add('is-visible');
 
     forRefresh.refresh();
 
