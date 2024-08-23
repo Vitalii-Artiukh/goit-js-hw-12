@@ -3,7 +3,7 @@ import axios from 'axios';
 const myKeyPixabay = '45488193-7ca777789e7fbcf45aeeb8195'; // key='***'
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-export const fetchToPixabay = (questEntered, Page) => {
+export const fetchToPixabay = async (questEntered, Page) => {
   const urlOptions = {
     params: {
       page: Page,
@@ -16,5 +16,5 @@ export const fetchToPixabay = (questEntered, Page) => {
     },
   };
 
-  return axios.get('', urlOptions);
+  return await axios.get('', urlOptions);
 };

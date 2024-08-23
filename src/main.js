@@ -94,7 +94,10 @@ const addMorePhoto = async event => {
         .join('');
 
       gallery.insertAdjacentHTML('beforeend', photoCardsInfo);
-      window.scrollBy(0, heightCard.height * 2);
+      window.scrollBy({
+        top: heightCard.height * 2,
+        behavior: 'smooth',
+      });
     }
     moreBtn.classList.add('is-visible');
 
